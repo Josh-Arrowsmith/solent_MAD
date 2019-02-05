@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FeetToMeters</string>
+
+    <string name="convertBtn">Convert!</string>
+
+    <string name="answerTv">In meters that is:</string>
+
+    <string name="inputTv">Feet:</string>
+</resources>
