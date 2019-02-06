@@ -1,4 +1,4 @@
-package com.example.mapapp1;
+package uk.ac.solent.myapplication;
 
 import org.junit.Test;
 

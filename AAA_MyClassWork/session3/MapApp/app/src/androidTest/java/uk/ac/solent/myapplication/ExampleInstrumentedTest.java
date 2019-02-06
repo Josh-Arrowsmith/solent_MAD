@@ -1,4 +1,4 @@
-package com.example.mapapp1;
+package uk.ac.solent.myapplication;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.mapapp1", appContext.getPackageName());
+        assertEquals("uk.ac.solent.myapplication", appContext.getPackageName());
     }
 }
