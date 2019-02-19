@@ -5,6 +5,8 @@
 
     <string name="choosecoord">Choose Map Coordinance</string>
 
+    <string name="pref">App Preferences</string>
+
     <string name="regularview">Regular View</string>
 
     <string name="hikebikemapview">Hike &amp; Bike View</string>

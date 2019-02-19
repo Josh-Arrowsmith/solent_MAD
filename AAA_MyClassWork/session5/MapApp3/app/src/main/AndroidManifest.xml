@@ -30,6 +30,9 @@
 
         <activity android:name=".MapChooseCoordinance" android:label="@string/choosecoord">
         </activity>
+
+        <activity android:name=".MyPrefsActivity" android:label="@string/pref">
+        </activity>
     </application>
 
 </manifest>

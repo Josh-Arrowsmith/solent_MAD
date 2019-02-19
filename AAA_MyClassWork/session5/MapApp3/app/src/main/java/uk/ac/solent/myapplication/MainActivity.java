@@ -28,12 +28,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
+
+        lat = 50.9080;
+        lon = -1.4;
+        zl = 16;
+
         if (savedInstanceState != null)
         {
             lat = Double.parseDouble ( savedInstanceState.getString ("lat", "50.9080"));
             lon = Double.parseDouble ( savedInstanceState.getString ("lon", "-1.4"));
             zl = Integer.parseInt ( savedInstanceState.getString ("zl", "16") );
         }
+
+//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+//        lat = Double.parseDouble ( prefs.getString("lat", "50.9080") );
+//        lon = Double.parseDouble ( prefs.getString("lon", "-1.4") );
+//        zl = Integer.parseInt ( prefs.getString("zl", "16") );
 
         setContentView(R.layout.activity_main);
 
@@ -61,10 +72,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this,MapChooseActivity.class);
             startActivityForResult(intent,0);
             return true;
-        }if(item.getItemId() == R.id.choosecoord)
+        }
+        if(item.getItemId() == R.id.choosecoord)
         {
             Intent intent = new Intent(this,MapChooseCoordinance.class);
             startActivityForResult(intent,1);
+            return true;
+        }
+        if(item.getItemId() == R.id.appprefs)
+        {
+            Intent intent = new Intent(this,MyPrefsActivity.class);
+            startActivityForResult(intent,2);
             return true;
         }
         return false;
@@ -101,8 +119,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 mv.getController().setCenter(new GeoPoint(lat, lon));
             }
-        }
-    }
+        }    }
 
     public void onClick(View v) {
 
