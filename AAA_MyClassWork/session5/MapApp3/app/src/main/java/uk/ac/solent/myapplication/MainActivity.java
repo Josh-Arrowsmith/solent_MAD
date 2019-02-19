@@ -153,10 +153,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void onSaveInstanceState (Bundle savedInstanceState)
     {
-        super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putString("lat", Double.toString(lat));
         savedInstanceState.putString("lon", Double.toString(lon));
         savedInstanceState.putString("zl", Integer.toString(zl));
+        super.onSaveInstanceState(savedInstanceState);
+
     }
 
 }
