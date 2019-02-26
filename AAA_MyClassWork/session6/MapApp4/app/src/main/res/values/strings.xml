@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Map App 3.0</string>
+
+    <string name="choosemap">Choose Map Mode</string>
+
+    <string name="choosecoord">Choose Map Coordinance</string>
+
+    <string name="pref">App Preferences</string>
+
+    <string name="poi">Nearby Points Of Interest</string>
+
+    <string name="regularview">Regular View</string>
+
+    <string name="hikebikemapview">Hike &amp; Bike View</string>
+
+    <string name="selectmap">Select Map Mode</string>
+</resources>
