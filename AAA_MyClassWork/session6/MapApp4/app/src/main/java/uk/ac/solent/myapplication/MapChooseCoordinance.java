@@ -11,6 +11,9 @@ import org.osmdroid.util.GeoPoint;
 
 public class MapChooseCoordinance extends AppCompatActivity implements View.OnClickListener {
 
+    String latnum = String.valueOf(-1.4);
+    String lonnum = String.valueOf(50.9080);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,18 +26,18 @@ public class MapChooseCoordinance extends AppCompatActivity implements View.OnCl
 
     public void onClick(View btnGo) {
         Intent intent = new Intent();
-        Bundle bundle=new Bundle();
+        Bundle coordbundle = new Bundle();
 
         EditText lat = findViewById(R.id.etLat);
         EditText lon = findViewById(R.id.etLong);
 
-        String latnum = lat.getText().toString();
-        String lonnum = lon.getText().toString();
+        latnum = lat.getText().toString();
+        lonnum = lon.getText().toString();
 
-        bundle.putString("com.example.latnum",latnum);
-        bundle.putString("com.example.lonnum",lonnum);
-        intent.putExtras(bundle);
-        setResult(RESULT_OK,intent);
+        coordbundle.putString("com.example.latnum",latnum);
+        coordbundle.putString("com.example.lonnum",lonnum);
+        intent.putExtras(coordbundle);
+        setResult(0,intent);
         finish();
     }
 }

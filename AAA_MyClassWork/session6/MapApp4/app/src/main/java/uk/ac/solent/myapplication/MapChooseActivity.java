@@ -16,8 +16,11 @@ public class MapChooseActivity extends ListActivity
 
     String[] names, details;
 
-    boolean regularmap;
-    boolean hikebikemap;
+    boolean regularmap = false;
+    boolean hikebikemap = false;
+    Intent intent = new Intent();
+    Bundle maptypebundle = new Bundle();
+
 
     public void onCreate(Bundle savedInstanceState)
     {
@@ -28,10 +31,10 @@ public class MapChooseActivity extends ListActivity
         setListAdapter(adapter);
     }
 
+
+
     public void onListItemClick(ListView lv, View view, int index, long id)
     {
-        Intent intent = new Intent();
-        Bundle bundle=new Bundle();
         if(index == 0) {
             regularmap = true;
             hikebikemap = false;
@@ -41,10 +44,10 @@ public class MapChooseActivity extends ListActivity
             hikebikemap = true;
         }
 
-        bundle.putBoolean("com.example.regularmap",regularmap);
-        bundle.putBoolean("com.example.hikebikemap",hikebikemap);
-        intent.putExtras(bundle);
-        setResult(RESULT_OK,intent);
+        maptypebundle.putBoolean("com.example.regularmap",regularmap);
+        maptypebundle.putBoolean("com.example.hikebikemap",hikebikemap);
+        intent.putExtras(maptypebundle);
+        setResult(0,intent);
         finish();
     }
 
@@ -71,5 +74,28 @@ public class MapChooseActivity extends ListActivity
             detail.setText(details[index]);
             return view;
         }
+    }
+
+    public void onPause() {
+        super.onPause();
+        mapTypeToBundle();
+    }
+
+    public void onStop() {
+        super.onStop();
+        mapTypeToBundle();
+    }
+
+    public void onDestroy() {
+        super.onDestroy();
+        mapTypeToBundle();
+    }
+
+    public void mapTypeToBundle() {
+        maptypebundle.putBoolean("com.example.regularmap",regularmap);
+        maptypebundle.putBoolean("com.example.hikebikemap",hikebikemap);
+        intent.putExtras(maptypebundle);
+        setResult(0,intent);
+        finish();
     }
 }

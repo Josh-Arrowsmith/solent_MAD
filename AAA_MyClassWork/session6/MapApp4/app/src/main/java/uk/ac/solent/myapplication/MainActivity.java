@@ -26,8 +26,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int zl;
     boolean setCheck;
 
-    String savedCOORD;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) //when app is first created
     {
@@ -67,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
-
     public boolean onOptionsItemSelected(MenuItem item)
     {
         if(item.getItemId() == R.id.choosemap)
@@ -92,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             Intent intent = new Intent(this,POIActivity.class);
             startActivityForResult(intent,3);
+            this.onPause();
             return true;
         }
         return false;
@@ -103,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(requestCode==0)
         {
 
-            if (resultCode==RESULT_OK)
+            if (resultCode==0)
             {
                 Bundle extras=intent.getExtras();
                 boolean regularmap = extras.getBoolean("com.example.regularmap");
@@ -126,14 +124,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(requestCode==1)
         {
-            if (resultCode==RESULT_OK)
+            if (resultCode==0)
             {
-                setCheck = true;
                 Bundle extras=intent.getExtras();
                 lat = extras.getDouble("com.example.latnum");
                 lon = extras.getDouble("com.example.lonnum");
 
                 mv.getController().setCenter(new GeoPoint(lat, lon));
+                setCheck = true;
+            }
+            else {
+                setCheck = false;
             }
         }
         if(requestCode==3)
@@ -163,12 +164,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onStart() //when app comes back from background
     {
         super.onStart();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        lat = Double.parseDouble(prefs.getString("lat", "50.9080"));
-        lon = Double.parseDouble(prefs.getString("lon", "-1.4"));
-        zl = Integer.parseInt(prefs.getString("zl", "16"));
-        mv.getController().setCenter(new GeoPoint(lat, lon));
-        mv.getController().setZoom(zl);
+        if (setCheck == true) {
+            setCheck = false;
+        }
+        else {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            lat = Double.parseDouble(prefs.getString("lat", "50.9080"));
+            lon = Double.parseDouble(prefs.getString("lon", "-1.4"));
+            zl = Integer.parseInt(prefs.getString("zl", "16"));
+            mv.getController().setCenter(new GeoPoint(lat, lon));
+            mv.getController().setZoom(zl);
+            setCheck = false;
+        }
     }
 
     public void onPause() //when activity goes to background
