@@ -37,7 +37,7 @@ public class MapChooseCoordinance extends AppCompatActivity implements View.OnCl
         coordbundle.putString("com.example.latnum",latnum);
         coordbundle.putString("com.example.lonnum",lonnum);
         intent.putExtras(coordbundle);
-        setResult(0,intent);
+        setResult(RESULT_OK,intent);
         finish();
     }
 }

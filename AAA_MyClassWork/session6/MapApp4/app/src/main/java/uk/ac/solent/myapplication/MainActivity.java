@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(requestCode==0)
         {
 
-            if (resultCode==0)
+            if (resultCode==RESULT_OK)
             {
                 Bundle extras=intent.getExtras();
                 boolean regularmap = extras.getBoolean("com.example.regularmap");
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(requestCode==1)
         {
-            if (resultCode==0)
+            if (resultCode==RESULT_OK)
             {
                 Bundle extras=intent.getExtras();
                 lat = extras.getDouble("com.example.latnum");

@@ -47,7 +47,7 @@ public class MapChooseActivity extends ListActivity
         maptypebundle.putBoolean("com.example.regularmap",regularmap);
         maptypebundle.putBoolean("com.example.hikebikemap",hikebikemap);
         intent.putExtras(maptypebundle);
-        setResult(0,intent);
+        setResult(RESULT_OK,intent);
         finish();
     }
 
