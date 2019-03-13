@@ -217,4 +217,91 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         savedInstanceState.putString("zl", Integer.toString(mv.getZoomLevel()));
         super.onSaveInstanceState(savedInstanceState);
     }
+
+    //write file code
+//    try
+//    {
+//        PrintWriter pw =
+//                new PrintWriter( new FileWriter("data.txt"));
+//
+//        pw.println("Hello");
+//        pw.println("It's a nice day!");
+//        pw.close(); // close the file to ensure data is flushed to file
+//    }
+//        catch(IOException e)
+//    {
+//        System.out.println ("I/O Error: " + e);
+//    }
+
+    //read file code
+//    try
+//    {
+//        FileReader fr = new FileReader(Environment.getExternalStorageDirectory().getAbsolutePath() + "/marks.txt");
+//        BufferedReader reader = new BufferedReader(new FileReader(fr);
+//        String line = "";
+//        while((line = reader.readLine()) != null)
+//        {
+//            System.out.println(line);
+//        }
+//    }
+//        catch(IOException e)
+//    {
+//        new AlertDialog.Builder(this).setPositiveButton("OK", null).
+//        setMessage("ERROR: " + e).show();
+//    }
+
+    // AsyncTask + post request code
+//    class MyTask extends AsyncTask<Void,Void,String>
+//    {
+//        public String doInBackground(Void... unused)
+//        {
+//            HttpURLConnection conn = null;
+//            try
+//            {
+//                URL url = new URL("http://server.com/add_person.php");
+//                conn = (HttpURLConnection) url.openConnection();
+//
+//                String postData = "name=Fred&dob=140462"
+//                // For POST
+//                conn.setDoOutput(true);
+//                conn.setFixedLengthStreamingMode(postData.length());
+//
+//                OutputStream out = null;
+//                out = conn.getOutputStream();
+//                out.write(postData.getBytes());
+//                if(conn.getResponseCode() == 200)
+//                {
+//                    InputStream in = conn.getInputStream();
+//                    BufferedReader br = new BufferedReader(new InputStreamReader(in));
+//                    String all = "", line;
+//                    while((line = br.readLine()) !=null)
+//                        all += line;
+//                    return all;
+//                }
+//                else
+//                {
+//                    return "HTTP ERROR: " + conn.getResponseCode();
+//                }
+//            }
+//            catch(IOException e)
+//            {
+//                return e.toString();
+//            }
+//            finally
+//            {
+//                if(conn!=null)
+//                {
+//                    conn.disconnect();
+//                }
+//            }
+//        }
+//
+//        public void onPostExecute(String result)
+//        {
+//
+//            new AlertDialog.Builder(MainActivity.this).
+//                    setMessage("Server sent back: " + result).
+//                    setPositiveButton("OK", null).show();
+//        }
+//    }
 }
